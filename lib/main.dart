@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:major_project__widget_testing/Constants/app_routes.dart';
+import 'package:major_project__widget_testing/state/galleryProvider.dart';
 import 'package:major_project__widget_testing/state/rulesAndRoundsProvider.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => RulesProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (context) => RulesProvider()),
+        ChangeNotifierProvider(create: (context) => GalleryProvider())
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: AppRoutes.routes,
